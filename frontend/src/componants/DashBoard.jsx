@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import CardsImg from "./CardsImg";
+import Carousel1 from "./CarouselCard";
+import Footer from "./Footer"
 
 const DashBoard = () => {
   return (
@@ -8,8 +10,10 @@ const DashBoard = () => {
       <Navbar />
       <div class="background-div"></div>
       <CardsImg/>
-    </div>
-  );
+      <Carousel1/>
+      <Footer/>
+    </div> 
+  );   
 };
 
 export default DashBoard;
