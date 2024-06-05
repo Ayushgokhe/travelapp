@@ -1,0 +1,29 @@
+/* *, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0px 10px;
+} */
+
+ul > li {
+    margin: 0px 12px;
+}
+
+.custom_ml{
+    margin-left: 30%;
+}
+
+  .background-div {
+    width: 100%;
+    padding-bottom: 60%;
+    background-image: url('../public/bgimage/pexels-freestockpro-3278215.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+  }
+
+  .cardSpace{
+    margin: 20px 40px;
+  }
+  .cardImg{
+    display: flex;
+  }
