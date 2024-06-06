@@ -40,14 +40,14 @@ const Navbar = () => {
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom_ml">
               <li class="nav-item">
-                <a class="nav-link" href="/login">
+                <NavLink class="nav-link" to="/login" style={{textDecoration:'none', color:'black'}}>
                   Login
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/register">
+                <NavLink class="nav-link" to="/register" style={{textDecoration:'none', color:'black'}}>
                   Register
-                </a>
+                </NavLink>
               </li>
             </ul>
             <form class="d-flex" role="search">
