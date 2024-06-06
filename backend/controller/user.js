@@ -4,7 +4,20 @@ const user = require("../module/user");
 // register user
 
 const register = async (req, res) => {
-  const { name, email, password, phone } = req.body;
+  const { name, email, password, cfmPassword, phone } = req.body;
+
+  if(!name || !email || !password || !cfmPassword || !phone){
+    res.send(err)
+  }
+  if(password !== cfmPassword){
+    re.send(err)
+  }
+
+  const emailExist = await user.findOne({ email });
+
+  if (emailExist) {
+    res.send(err)
+  }
 
   const user1 = await user.create({
     name,
@@ -19,6 +32,10 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const {email, password} = req.body
+
+    if(!email || !password){
+        res.send(err)
+    }
 
     await user.findOne({email:email})
     .then((user)=>{
