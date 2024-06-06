@@ -40,12 +40,12 @@ const Navbar = () => {
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom_ml">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/login">
                   Login
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/register">
                   Register
                 </a>
               </li>
