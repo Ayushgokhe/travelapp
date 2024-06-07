@@ -90,7 +90,7 @@ const SearchForm = () => {
             required
           />
         </div>
-        <button type="submit">Search Now</button>
+        <button className='searchbtn' type="submit">Search Now</button>
       </form>
     </div>
   );

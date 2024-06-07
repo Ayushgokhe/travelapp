@@ -54,3 +54,35 @@
 .search-button:hover {
     background-color: #008c7a;
 }
+
+.country-list{
+  background:#dbe0df;
+  width: 200px;
+  position: absolute;
+  height: 100px;
+  margin-top: 73px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.country-list li {
+  list-style: none;
+  margin-left: -25px;
+}
+.country-list li:hover {
+  background: #cdcaca;
+}
+
+.searchbtn{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 15px;
+  border-radius: 3px;
+}
+
