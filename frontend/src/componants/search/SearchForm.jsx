@@ -1,61 +1,100 @@
-// src/SearchForm.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import countries from '../../countries.json';
 import './SearchForm.css';
 
 const SearchForm = () => {
-    const [country, setCountry] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+  const [country, setCountry] = useState('');
+  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const navigate = useNavigate();
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        console.log('Country:', country);
-        console.log('Start Date:', startDate);
-        console.log('End Date:', endDate);
-    };
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setCountry(query);
 
-    return (
-        <div className="search-form-container">
-            <form onSubmit={handleSearch} className="search-form">
-                <div className="form-group">
-                    <label htmlFor="country">Country</label>
-                    <select
-                        id="country"
-                        value={country}
-                        onChange={(e) => setCountry(e.target.value)}
-                        required
-                    >
-                        <option value="">Search Country</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="usa">USA</option>
-                        <option value="uk">UK</option>
-                        {/* Add more options as needed */}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="start-date">Start Date</label>
-                    <input
-                        type="date"
-                        id="start-date"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="end-date">End Date</label>
-                    <input
-                        type="date"
-                        id="end-date"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit" className="search-button">Search Now</button>
-            </form>
+    if (query.length > 0) {
+      const filtered = countries.filter((ele) =>
+        ele.label.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredCountries(filtered);
+    } else {
+      setFilteredCountries([]);
+    }
+  };
+
+  const handleSelectCountry = (country) => {
+    setCountry(country);
+    setFilteredCountries([]);
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (startDate > endDate) {
+      alert("End date should be greater than or equal to start date");
+    } else {
+      navigate(`/result?country=${country}&startDate=${startDate}&endDate=${endDate}`);
+    }
+  };
+
+  const today = new Date().toISOString().split('T')[0]; // Get today's date
+
+  return (
+    <div className="search-form-container">
+      <form onSubmit={handleSearch} className="search-form">
+        <div className="form-group">
+          <label>Country</label>
+          <input
+            type="search"
+            value={country}
+            onChange={handleInputChange}
+            placeholder="Search for a country"
+            required
+          />
+          {filteredCountries.length > 0 && (
+            <ul className="country-list">
+              {filteredCountries.map((ele, index) => (
+                <li key={index} onClick={() => handleSelectCountry(ele.label)}>
+                  {ele.label}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-    );
+        <div className="form-group">
+          <label>Start Date</label>
+          <input
+            type="date"
+            value={startDate}
+            min={today} // Set minimum date to today
+            onChange={handleStartDateChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>End Date</label>
+          <input
+            type="date"
+            value={endDate}
+            min={startDate} // Set minimum date to the selected start date
+            onChange={handleEndDateChange}
+            required
+          />
+        </div>
+        <button className='searchbtn' type="submit">Search Now</button>
+      </form>
+    </div>
+  );
 };
 
 export default SearchForm;
+

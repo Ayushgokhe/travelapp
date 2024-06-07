@@ -100,7 +100,7 @@ const FillForm = () => {
 
         <div className="form-group">
           <label>
-            <input type="checkbox" name="addressSameAsPassport" checked={formData.addressSameAsPassport} onChange={handleChange} />
+            <input type="checkbox" className='addressSameAsPassport' name="addressSameAsPassport" checked={formData.addressSameAsPassport} onChange={handleChange} />
             My address in passport is same as current residential address
           </label>
         </div>
