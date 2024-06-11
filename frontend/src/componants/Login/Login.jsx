@@ -124,7 +124,8 @@ const Login = () => {
                 <button type="submit" className="login-button">Login</button>
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
                 <div className="register-link">
-                    <span>Not registered? <Link to="/register">Register here</Link></span>
+                    <span style={{marginRight:'10px'}}>Not registered? <Link to="/register">Register here</Link></span>
+                    <span><Link to="/forget-password">Forgot Password?</Link></span>
                 </div>
             </form>
         </div>

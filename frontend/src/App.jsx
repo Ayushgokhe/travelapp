@@ -6,7 +6,8 @@ import FillForm from './componants/FillForm/FillForm'
 import Login from './componants/Login/Login'
 import Register from './componants/Register/Register'
 import FillFormResult from './componants/search/SearchFormResult'
-
+import ForgetPassword from './componants/Password/ForgetPassword'
+import ResetPassword from './componants/Password/ResetPassword'
 
 
 const App = () => {
@@ -18,6 +19,8 @@ const App = () => {
       <Route path='/login' Component={Login } />
       <Route path='/register' Component={Register} />
       <Route path='/result' Component={FillFormResult} />
+      <Route path='/forget-password' Component={ForgetPassword} />
+      <Route path='/reset-password' Component={ResetPassword} />
     </Routes>
     </BrowserRouter>
   )

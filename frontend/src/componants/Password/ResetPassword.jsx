@@ -1,10 +1,10 @@
 // src/Register.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './ResetPassword.css';
 
-const Register = () => {
+const ResetPassword = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -105,4 +105,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default ResetPassword;

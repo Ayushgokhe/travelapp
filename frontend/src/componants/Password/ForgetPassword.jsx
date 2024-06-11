@@ -12,11 +12,11 @@ const ForgetPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Here, you would typically handle the password reset request, e.g., by making an API call.
-        setMessage(`Password reset email sent to: ${email}`);
+        setMessage(`Check Email: ${email}`);
         setTimeout(() => {
             setMessage('')
             setEmail('');
-        }, 2000);
+        }, 3000);
         // Hide message after 5 seconds
     };
 
