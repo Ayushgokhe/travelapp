@@ -48,7 +48,7 @@ app.use(express.json());
 connectDb(process.env.MONGO_URI, process.env.DB_NAME);
 
 // Routes
-app.use('/', userrouter);
+app.use('/api/v1/user', userrouter);
 app.use('/api/v1/document', documentrouter);
 app.use('/api/v1/country', countryDaysRouter);  // Use the new route
 
