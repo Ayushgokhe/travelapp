@@ -3,7 +3,7 @@ import axios from 'axios';
 import './FillForm.css';
 
 const FillForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     passportNumber: '',
     givenName: '',
     surname: '',
@@ -20,7 +20,9 @@ const FillForm = () => {
     state: '',
     pincode: '',
     phone: ''
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -36,6 +38,8 @@ const FillForm = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/v1/document/submit', formData);
       console.log(response.data);
+      // Clear the form by resetting the state
+      setFormData(initialFormData);
     } catch (error) {
       console.error('There was an error submitting the form!', error);
     }
