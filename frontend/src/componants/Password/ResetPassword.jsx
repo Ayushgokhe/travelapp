@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './ResetPassword.css';
+import axios from 'axios';
+import { useParams } from "react-router-dom";
+
 
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
@@ -11,6 +14,8 @@ const ResetPassword = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordError, setPasswordError] = useState('');
     const [confirmPasswordError, setConfirmPasswordError] = useState('');
+    const {id, token} = useParams()
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -44,6 +49,16 @@ const ResetPassword = () => {
         } else {
             setConfirmPasswordError('');
         }
+
+        axios
+      .post(`http://localhost:4000/api/v1/user/resetPassword/${id}/${token}`, { password })
+      .then((result) => {
+        console.log(result);
+        // if (result.data === "Success") {
+        //   navigate("/login");
+        // }
+      })
+      .catch((err) => console.log(err));
 
         if (valid) {
             console.log('Password:', password);

@@ -32,11 +32,16 @@ const Navbar = () => {
                   About
                 </a>
               </li>
-              <li class="nav-item" style={{marginTop:'7px'}}>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Contact
+                </a>
+              </li>
+              {/* <li class="nav-item" style={{marginTop:'7px'}}>
                 <NavLink class="nav-link" to='/fillform' style={{textDecoration:'none', color:'black'}}>
                   Fill Form
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom_ml">
               <li class="nav-item">

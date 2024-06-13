@@ -50,6 +50,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './SearchForm.css'; // Import the CSS file for styling
+import FillForm from '../FillForm/FillForm';
 
 const SearchFormResult = () => {
   const [visaProcessingDays, setVisaProcessingDays] = useState(null);
@@ -92,6 +93,9 @@ const SearchFormResult = () => {
           <p>Loading...</p>
         )}
       </div>
+      .
+      <div></div>
+      <FillForm/>
     </div>
   );
 };

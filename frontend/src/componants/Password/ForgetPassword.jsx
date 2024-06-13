@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './forget-password.css';
+import axios from 'axios';
 
 const ForgetPassword = () => {
     const [email, setEmail] = useState('');
@@ -12,6 +13,17 @@ const ForgetPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Here, you would typically handle the password reset request, e.g., by making an API call.
+
+    axios
+      .post("http://localhost:4000/api/v1/user/forgetPassword", { email })
+      .then((result) => {
+        console.log(result);
+        // if (result.data === "Success") {
+        //   navigate("/login");
+        // }
+      })
+      .catch((err) => console.log(err));
+
         setMessage(`Check Email: ${email}`);
         setTimeout(() => {
             setMessage('')

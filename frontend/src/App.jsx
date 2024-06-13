@@ -20,7 +20,7 @@ const App = () => {
       <Route path='/register' Component={Register} />
       <Route path='/result' Component={FillFormResult} />
       <Route path='/forget-password' Component={ForgetPassword} />
-      <Route path='/reset-password' Component={ResetPassword} />
+      <Route path='/resetPassword/:id/:token' Component={ResetPassword} />
     </Routes>
     </BrowserRouter>
   )
