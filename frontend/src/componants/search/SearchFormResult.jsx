@@ -95,7 +95,7 @@ const SearchFormResult = () => {
       </div>
       .
       <div></div>
-      <FillForm/>
+      {error ? null : <FillForm />}
     </div>
   );
 };
