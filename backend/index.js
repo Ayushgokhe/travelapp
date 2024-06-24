@@ -27,35 +27,39 @@
 // });
 
 
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDb = require('./db/connectDb');
-const userrouter = require('./routes/user');
-const documentrouter = require('./routes/document');
-const countryDaysRouter = require('./routes/country');  // Import the new route
+// *******************************************************************************************
 
-// Configuration
-dotenv.config();
-const app = express();
-const port = process.env.PORT || 4000;
+// const express = require('express');
+// const cors = require('cors');
+// const dotenv = require('dotenv');
+// const connectDb = require('./db/connectDb');
+// const userrouter = require('./routes/user');
+// const documentrouter = require('./routes/document');
+// const countryDaysRouter = require('./routes/country');  // Import the new route
 
-// Middleware
-app.use(cors({ origin: process.env.CLIENT_URL }));
-app.use(express.json());
+// // Configuration
+// dotenv.config();
+// const app = express();
+// const port = process.env.PORT || 4000;
 
-// Connecting to DB
-connectDb(process.env.MONGO_URI, process.env.DB_NAME);
+// // Middleware
+// app.use(cors({ origin: process.env.CLIENT_URL }));
+// app.use(express.json());
 
-// Routes
-app.use('/api/v1/user', userrouter);
-app.use('/api/v1/document', documentrouter);
-app.use('/api/v1/country', countryDaysRouter);  // Use the new route
+// // Connecting to DB
+// connectDb(process.env.MONGO_URI, process.env.DB_NAME);
 
-// Starting the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// // Routes
+// app.use('/api/v1/user', userrouter);
+// app.use('/api/v1/document', documentrouter);
+// app.use('/api/v1/country', countryDaysRouter);  // Use the new route
+
+// // Starting the server
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
+
+// ***********************************************************************************
 
 // const express = require('express');
 // const cors = require('cors');
@@ -87,3 +91,34 @@ app.listen(port, () => {
 //   console.log(`Server is running on http://localhost:${port}`);
 // });
 
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDb = require('./db/connectDb');
+const userrouter = require('./routes/user');
+const documentrouter = require('./routes/document');
+const countryDaysRouter = require('./routes/country');  // Import the new route
+const path = require('path');
+
+// Configuration
+dotenv.config();
+const app = express();
+const port = process.env.PORT || 4000;
+
+// Middleware
+app.use(cors({ origin: process.env.CLIENT_URL }));
+app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files statically
+
+// Connecting to DB
+connectDb(process.env.MONGO_URI, process.env.DB_NAME);
+
+// Routes
+app.use('/api/v1/user', userrouter);
+app.use('/api/v1/document', documentrouter);
+app.use('/api/v1/country', countryDaysRouter);  // Use the new route
+
+// Starting the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
