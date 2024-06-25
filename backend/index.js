@@ -99,6 +99,7 @@ const userrouter = require('./routes/user');
 const documentrouter = require('./routes/document');
 const countryDaysRouter = require('./routes/country');  // Import the new route
 const path = require('path');
+const paymentLink = require('./routes/payment')
 
 // Configuration
 dotenv.config();
@@ -117,6 +118,7 @@ connectDb(process.env.MONGO_URI, process.env.DB_NAME);
 app.use('/api/v1/user', userrouter);
 app.use('/api/v1/document', documentrouter);
 app.use('/api/v1/country', countryDaysRouter);  // Use the new route
+app.use('/api/v1/payment', paymentLink);
 
 // Starting the server
 app.listen(port, () => {
