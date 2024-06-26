@@ -164,3 +164,110 @@
     font-size: 1em;
   }
 } */
+
+.tourist-visa-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.visa-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.visa-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: first baseline;
+}
+
+.visa-header h2 {
+  margin-bottom: 0px !important;
+  font-size: 24px !important;
+}
+
+.start-application-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.visa-details {
+  display: flex;
+  padding: 20px;
+}
+
+.visa-info {
+  flex: 2;
+}
+
+.info-item {
+  margin-bottom: 10px;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.visa-price {
+  flex: 1;
+  text-align: right;
+}
+
+.price-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+.view-details, .share-quote {
+  display: block;
+  color: #1a73e8;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.assistance-header {
+  margin-top: 30px;
+}
+
+.steps-dropdown {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  cursor: pointer;
+}
+
+/* @media (min-width: 1200px) {
+  .h2, h2 {
+    font-size: 2rem;
+    margin-bottom: -10px !important;
+  }
+} */
