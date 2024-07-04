@@ -39,6 +39,7 @@ import ForgetPassword from './componants/Password/ForgetPassword';
 import ResetPassword from './componants/Password/ResetPassword';
 // import Navbar from './componants/Navbar';
 import './App.css';
+import PaymentPage from './componants/FillForm/PaymentPage';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -55,6 +56,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/result' element={<ProtectedRoute><FillFormResult /></ProtectedRoute>} />
+        <Route path="/payment" element={<ProtectedRoute><PaymentPage /></ProtectedRoute>} />
         <Route path='/forget-password' element={<ForgetPassword />} />
         <Route path='/resetPassword/:id/:token' element={<ResetPassword />} />
       </Routes>
